@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>RTMP Live Streaming</title>
+		<title>Live Streaming</title>
+		<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+		<script src="https://unpkg.com/video.js/dist/video.js"></script>
+		<script src="https://unpkg.com/videojs-flash/dist/videojs-flash.min.js"></script>
+		<script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+
+	</head>
+	<body>  
+		<h1>RTMP Player</h1>
+		<video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="720" 
+			data-setup='{"techOrder": ["html5","flash"]}'>
+			<source src="rtmp://127.0.0.1:1935/live/test" type="rtmp/mp4">
+		</video>
+	  
+		<div id="footer">
+			<font size="2">Tareq Alqutami - 2019</font>
+		</div>
+	</body>
+</html>

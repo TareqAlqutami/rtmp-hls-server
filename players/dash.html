@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>DASH Live Streaming</title>
+		<link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet">
+		<script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
+	</head>
+	<body>
+		<h1>DASH Player</h1>
+		<video id="player" class="video-js vjs-default-skin" width="720" controls preload="auto">
+			<source src="http://127.0.0.1:8080/dash/test_src.mpd" type="application/dash+xml" />
+		</video>
+		<script>
+			var player = videojs('#player');
+		</script>
+		
+		<div id="footer">
+			  <font size="2"> Tareq-Alqutami - 2019</font>
+		</div>
+	</body>
+	
+</html>
