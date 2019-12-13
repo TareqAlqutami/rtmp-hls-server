@@ -2,6 +2,9 @@
 
 **Docker image for video streaming server that supports RTMP, HLS, and DASH streams.**
 
+[![Docker Automated build](https://img.shields.io/docker/cloud/automated/alqutami/rtmp-hls.svg)](https://hub.docker.com/r/alqutami/rtmp-hls/builds/)
+[![Build Status](https://img.shields.io/docker/cloud/build/alqutami/rtmp-hls.svg)](https://hub.docker.com/r/alqutami/rtmp-hls)
+
 ## Description
 
 This Docker image can be used to create a video streaming server that supports [**RTMP**](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol), [**HLS**](https://en.wikipedia.org/wiki/HTTP_Live_Streaming), [**DASH**](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) out of the box. 
@@ -84,6 +87,7 @@ The provided demo players assume the stream-key is called `test` and the player 
 		docker run -d -p 1935:1935 -p 8080:8080 -v custom_players:/usr/local/nginx/html/players alqutami/rtmp-hls
 		```
 		where `custom_players` is the directory holding the modified html files.
+
 ## Copyright
 Released under MIT license.
 
