@@ -16,7 +16,7 @@ RUN apt-get update && \
 		openssl libssl-dev yasm \
 		libpcre3-dev librtmp-dev libtheora-dev \
 		libvorbis-dev libvpx-dev libfreetype6-dev \
-		libx264-dev libx265-dev && \
+		libmp3lame-dev libx264-dev libx265-dev && \
     rm -rf /var/lib/apt/lists/*
 	
 		
@@ -70,6 +70,7 @@ RUN cd /tmp/build/ffmpeg-${FFMPEG_VERSION} && \
 	  --enable-postproc \
 	  --enable-swresample \ 
 	  --enable-libfreetype \
+	  --enable-libmp3lame \
 	  --disable-debug \
 	  --disable-doc \
 	  --disable-ffplay \
@@ -88,7 +89,7 @@ FROM debian:${DEBIAN_VERSION}
 RUN apt-get update && \
 	apt-get install -y \
 		ca-certificates openssl libpcre3-dev \
-		librtmp1 libtheora0 libvorbis-dev \
+		librtmp1 libtheora0 libvorbis-dev libmp3lame0 \
 		libvpx4 libx264-dev libx265-dev && \
     rm -rf /var/lib/apt/lists/*
 
