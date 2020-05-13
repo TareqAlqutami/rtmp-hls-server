@@ -1,4 +1,4 @@
-ARG ALPINE_VERSION=3.8
+ARG ALPINE_VERSION=3.11
 
 ##### Building stage #####
 FROM alpine:${ALPINE_VERSION} as builder
@@ -47,7 +47,7 @@ RUN cd /tmp/build/nginx-${NGINX_VERSION} && \
         --with-http_ssl_module \
         --with-threads \
         --add-module=/tmp/build/nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION} && \
-    make -j $(getconf _NPROCESSORS_ONLN) && \
+    make CFLAGS=-Wno-error -j $(getconf _NPROCESSORS_ONLN) && \
     make install
 
 # Download ffmpeg source
