@@ -15,7 +15,7 @@ RUN apk update	&& \
 		bash build-base ca-certificates \
 		openssl openssl-dev make \
 		gcc libgcc libc-dev rtmpdump-dev \
-		zlib-dev musl-dev pcre pcre-dev \
+		zlib-dev musl-dev pcre pcre-dev lame-dev \
 		yasm pkgconf pkgconfig libtheora-dev \
 		libvorbis-dev libvpx-dev freetype-dev  \
 		x264-dev x265-dev && \
@@ -72,6 +72,7 @@ RUN cd /tmp/build/ffmpeg-${FFMPEG_VERSION} && \
 	  --enable-avresample \
 	  --enable-swresample \ 
 	  --enable-libfreetype \
+	  --enable-libmp3lame \
 	  --disable-debug \
 	  --disable-doc \
 	  --disable-ffplay \
@@ -91,7 +92,7 @@ RUN apk update	&& \
 	apk --no-cache add \
 		bash ca-certificates openssl \
 		pcre libtheora libvorbis libvpx \
-		librtmp x264-dev x265-dev freetype && \
+		librtmp x264-dev x265-dev freetype lame && \
     rm -rf /var/lib/apt/lists/*	
 
 # Copy files from build stage to final stage		
