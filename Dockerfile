@@ -1,11 +1,11 @@
-ARG DEBIAN_VERSION=stretch-slim 
+ARG DEBIAN_VERSION=stretch-slim
 
 ##### Building stage #####
 FROM debian:${DEBIAN_VERSION} as builder
 MAINTAINER Tareq Alqutami <tareqaziz2010@gmail.com>
 
-# Versions of nginx, rtmp-module and ffmpeg 
-ARG  NGINX_VERSION=1.17.5
+# Versions of nginx, rtmp-module and ffmpeg
+ARG  NGINX_VERSION=1.18.0
 ARG  NGINX_RTMP_MODULE_VERSION=1.2.1
 ARG  FFMPEG_VERSION=4.2.1
 
@@ -18,8 +18,8 @@ RUN apt-get update && \
 		libvorbis-dev libvpx-dev libfreetype6-dev \
 		libmp3lame-dev libx264-dev libx265-dev && \
     rm -rf /var/lib/apt/lists/*
-	
-		
+
+
 # Download nginx source
 RUN mkdir -p /tmp/build && \
 	cd /tmp/build && \
@@ -39,7 +39,7 @@ RUN cd /tmp/build/nginx-${NGINX_VERSION} && \
         --sbin-path=/usr/local/sbin/nginx \
         --conf-path=/etc/nginx/nginx.conf \
         --error-log-path=/var/log/nginx/error.log \
-        --http-log-path=/var/log/nginx/access.log \		
+        --http-log-path=/var/log/nginx/access.log \
         --pid-path=/var/run/nginx/nginx.pid \
         --lock-path=/var/lock/nginx.lock \
         --http-client-body-temp-path=/tmp/nginx-client-body \
@@ -54,7 +54,7 @@ RUN cd /tmp/build && \
   wget http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz && \
   tar -zxf ffmpeg-${FFMPEG_VERSION}.tar.gz && \
   rm ffmpeg-${FFMPEG_VERSION}.tar.gz
-  
+
 # Build ffmpeg
 RUN cd /tmp/build/ffmpeg-${FFMPEG_VERSION} && \
   ./configure \
@@ -68,7 +68,7 @@ RUN cd /tmp/build/ffmpeg-${FFMPEG_VERSION} && \
 	  --enable-libvorbis \
 	  --enable-librtmp \
 	  --enable-postproc \
-	  --enable-swresample \ 
+	  --enable-swresample \
 	  --enable-libfreetype \
 	  --enable-libmp3lame \
 	  --disable-debug \
@@ -77,7 +77,7 @@ RUN cd /tmp/build/ffmpeg-${FFMPEG_VERSION} && \
 	  --extra-libs="-lpthread -lm" && \
 	make -j $(getconf _NPROCESSORS_ONLN) && \
 	make install
-	
+
 # Copy stats.xsl file to nginx html directory and cleaning build files
 RUN cp /tmp/build/nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}/stat.xsl /usr/local/nginx/html/stat.xsl && \
 	rm -rf /tmp/build
@@ -93,7 +93,7 @@ RUN apt-get update && \
 		libvpx4 libx264-dev libx265-dev && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy files from build stage to final stage	
+# Copy files from build stage to final stage
 COPY --from=builder /usr/local /usr/local
 COPY --from=builder /etc/nginx /etc/nginx
 COPY --from=builder /var/log/nginx /var/log/nginx
