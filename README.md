@@ -1,6 +1,8 @@
-# RTMP-HLS Docker
+# FIRST Chesapeake RTMP Docker Server
 
 **Docker image for video streaming server that supports RTMP, HLS, and DASH streams.**
+**Designed to facilitate the streaming of remote events for [FIRST Chesapeake](https://firstchesapeake.org)**
+
 
 [![Docker Automated build](https://img.shields.io/docker/cloud/automated/mglennon/chs-rtmp-server.svg)](https://hub.docker.com/r/mglennon/chs-rtmp-server/builds/)
 [![Build Status](https://img.shields.io/docker/cloud/build/mglennon/chs-rtmp-server.svg)](https://hub.docker.com/r/mglennon/chs-rtmp-server)
