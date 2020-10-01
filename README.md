@@ -23,9 +23,9 @@ All modules are built from source on Debian and Alpine Linux base images.
  * Available web video players (based on [video.js](https://videojs.com/) and [hls.js](https://github.com/video-dev/hls.js/)) at `/usr/local/nginx/html/players`. 
 
 Current Image is built using:
- * Nginx 1.17.5 (compiled from source)
+ * Nginx 1.18.0 (compiled from source)
  * Nginx-rtmp-module 1.2.1 (compiled from source)
- * FFmpeg 4.2.1 (compiled from source)
+ * FFmpeg 4.2.3 (compiled from source)
 
 This image was inspired by similar docker images from [tiangolo](https://hub.docker.com/r/tiangolo/nginx-rtmp/) and [alfg](https://hub.docker.com/r/alfg/nginx-rtmp/). It has small build size, adds support for HTTP-based streams and adaptive streaming using FFmpeg.
 
