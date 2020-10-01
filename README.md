@@ -2,8 +2,8 @@
 
 **Docker image for video streaming server that supports RTMP, HLS, and DASH streams.**
 
-[![Docker Automated build](https://img.shields.io/docker/cloud/automated/alqutami/rtmp-hls.svg)](https://hub.docker.com/r/alqutami/rtmp-hls/builds/)
-[![Build Status](https://img.shields.io/docker/cloud/build/alqutami/rtmp-hls.svg)](https://hub.docker.com/r/alqutami/rtmp-hls)
+[![Docker Automated build](https://img.shields.io/docker/cloud/automated/mglennon/chs-rtmp-server.svg)](https://hub.docker.com/r/mglennon/chs-rtmp-server/builds/)
+[![Build Status](https://img.shields.io/docker/cloud/build/mglennon/chs-rtmp-server.svg)](https://hub.docker.com/r/mglennon/chs-rtmp-server)
 
 ## Description
 
@@ -34,17 +34,17 @@ It was forked from [TareqAlqutami](https://github.com/TareqAlqutami/rtmp-hls-ser
 
 ### To run the server
 ```
-docker run -d -p 1935:1935 -p 8080:8080 alqutami/rtmp-hls
+docker run -d -p 1935:1935 -p 8080:8080 mglennon/chs-rtmp-server
 ```
 
 For Alpine-based Image use:
 ```
-docker run -d -p 1935:1935 -p 8080:8080 alqutami/rtmp-hls:latest-alpine
+docker run -d -p 1935:1935 -p 8080:8080 mglennon/chs-rtmp-server:latest-alpine
 ```
 
 To run with custom conf file:
 ```
-docker run -d -p 1935:1935 -p 8080:8080 -v custom.conf:/etc/nginx/nginx.conf alqutami/rtmp-hls
+docker run -d -p 1935:1935 -p 8080:8080 -v custom.conf:/etc/nginx/nginx.conf mglennon/chs-rtmp-server
 ```
 where `custom.conf` is the new conf file for Nginx.
 
@@ -85,7 +85,7 @@ The provided demo players assume the stream-key is called `test` and the player 
 	* These web players are hardcoded to play stream key "test" at localhost.
 	* To change the stream source for these players. Download the html files and modify the `src` attribute in the video tag in the html file. You can then mount the modified files to the container as follows:
 		```
-		docker run -d -p 1935:1935 -p 8080:8080 -v custom_players:/usr/local/nginx/html/players alqutami/rtmp-hls
+		docker run -d -p 1935:1935 -p 8080:8080 -v custom_players:/usr/local/nginx/html/players mglennon/chs-rtmp-server
 		```
 		where `custom_players` is the directory holding the modified html files.
 
@@ -93,6 +93,6 @@ The provided demo players assume the stream-key is called `test` and the player 
 Released under MIT license.
 
 ## More info
- * **GitHub repo**: <https://github.com/TareqAlqutami/rtmp-hls-server.git>
+ * **GitHub repo**: <https://github.com/Tareqmglennon/chs-rtmp-server-server.git>
 
- * **Docker Hub image**: <https://hub.docker.com/r/alqutami/rtmp-hls>
+ * **Docker Hub image**: <https://hub.docker.com/r/mglennon/chs-rtmp-server>
