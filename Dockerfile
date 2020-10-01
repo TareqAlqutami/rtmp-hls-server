@@ -2,7 +2,6 @@ ARG DEBIAN_VERSION=stretch-slim
 
 ##### Building stage #####
 FROM debian:${DEBIAN_VERSION} as builder
-MAINTAINER Tareq Alqutami <tareqaziz2010@gmail.com>
 
 # Versions of nginx, rtmp-module and ffmpeg 
 ARG  NGINX_VERSION=1.17.5
@@ -16,7 +15,8 @@ RUN apt-get update && \
 		openssl libssl-dev yasm \
 		libpcre3-dev librtmp-dev libtheora-dev \
 		libvorbis-dev libvpx-dev libfreetype6-dev \
-		libmp3lame-dev libx264-dev libx265-dev && \
+		libmp3lame-dev libx264-dev libx265-dev \
+		python3-django && \
     rm -rf /var/lib/apt/lists/*
 	
 		
