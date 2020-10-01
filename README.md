@@ -19,7 +19,7 @@ All modules are built from source on Debian and Alpine Linux base images.
  * Default settings: 
 	* RTMP is ON
 	* HLS is ON (adaptive, 5 variants)
-	* DASH is ON 
+	* DASH is ON
 	* Other Nginx configuration files are also provided to allow for RTMP-only streams or no-FFmpeg transcoding. 
  * Statistic page of RTMP streams at `http://<server ip>:<server port>/stats`.
  * Available web video players (based on [video.js](https://videojs.com/) and [hls.js](https://github.com/video-dev/hls.js/)) at `/usr/local/nginx/html/players`. 
