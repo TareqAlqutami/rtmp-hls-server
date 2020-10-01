@@ -95,6 +95,6 @@ The provided demo players assume the stream-key is called `test` and the player 
 Released under MIT license.
 
 ## More info
- * **GitHub repo**: <https://github.com/Tareqmglennon/chs-rtmp-server-server.git>
+ * **GitHub repo**: <https://github.com/mglennon/chs-rtmp-server.git>
 
  * **Docker Hub image**: <https://hub.docker.com/r/mglennon/chs-rtmp-server>
