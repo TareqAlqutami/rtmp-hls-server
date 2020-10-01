@@ -82,7 +82,7 @@ The provided demo players assume the stream-key is called `test` and the player 
 	* To play DASH content: `http://localhost:8080/players/dash.html`
 	* To play RTMP and HLS contents on the same page: `http://localhost:8080/players/rtmp_hls.html`
 
-	**Notes:** 
+	**Notes:**
 
 	* These web players are hardcoded to play stream key "test" at localhost.
 	* To change the stream source for these players. Download the html files and modify the `src` attribute in the video tag in the html file. You can then mount the modified files to the container as follows:
